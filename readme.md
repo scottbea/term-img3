@@ -60,6 +60,13 @@ Type: `boolean`<br>
 
 Log image in terminal, `false` by default.
 
+##### fallback
+
+Type: `function`<br>
+Default: `() => throw new UnsupportedTerminal()`
+
+Enables you to do something else when the terminal doesn't support images.
+
 #### return
 
 Type: `string`<br>
