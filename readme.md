@@ -1,4 +1,4 @@
-# term-img
+# term-img2
 
 > Display images in your terminal
 
@@ -12,14 +12,14 @@ Even [animated gifs](https://github.com/vdemedes/gifi)!
 ## Install
 
 ```
-$ npm install --save term-img
+$ npm install --save term-img2
 ```
 
 
 ## Usage
 
 ```js
-const termImg = require('term-img');
+const termImg = require('term-img2');
 
 termImg('unicorn.jpg', {log: true});
 ```
