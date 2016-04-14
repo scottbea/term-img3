@@ -6,4 +6,4 @@ const image = termImg('fixture.jpg', {
 	log: true
 });
 
-console.log(image)
+console.log(image);
