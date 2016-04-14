@@ -1,0 +1,22 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/egoist/.nvm/versions/node/v4.2.4/bin/node',
+1 verbose cli   '/Users/egoist/.nvm/versions/node/v4.2.4/bin/npm',
+1 verbose cli   'version',
+1 verbose cli   '2.0.0' ]
+2 info using npm@3.7.2
+3 info using node@v4.2.4
+4 verbose stack Error: Version not changed
+4 verbose stack     at persistVersion (/Users/egoist/.nvm/versions/node/v4.2.4/lib/node_modules/npm/lib/version.js:91:47)
+4 verbose stack     at /Users/egoist/.nvm/versions/node/v4.2.4/lib/node_modules/npm/lib/version.js:46:7
+4 verbose stack     at /Users/egoist/.nvm/versions/node/v4.2.4/lib/node_modules/npm/lib/version.js:118:5
+4 verbose stack     at /Users/egoist/.nvm/versions/node/v4.2.4/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:380:3)
+5 verbose cwd /Users/egoist/dev/term-img2
+6 error Darwin 15.0.0
+7 error argv "/Users/egoist/.nvm/versions/node/v4.2.4/bin/node" "/Users/egoist/.nvm/versions/node/v4.2.4/bin/npm" "version" "2.0.0"
+8 error node v4.2.4
+9 error npm  v3.7.2
+10 error Version not changed
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
