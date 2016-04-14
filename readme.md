@@ -1,4 +1,4 @@
-# term-img [![Build Status](https://travis-ci.org/sindresorhus/term-img.svg?branch=master)](https://travis-ci.org/sindresorhus/term-img)
+# term-img
 
 > Display images in your terminal
 
