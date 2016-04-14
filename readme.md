@@ -21,11 +21,7 @@ $ npm install --save term-img
 ```js
 const termImg = require('term-img');
 
-function fallback() {
-	// do something else when not supported
-}
-
-termImg('unicorn.jpg', {fallback});
+termImg('unicorn.jpg', {log: true});
 ```
 
 
@@ -58,19 +54,22 @@ The width and height are given as a number followed by a unit, or the word "auto
 Type: `boolean`<br>
 Default: `true`
 
-##### fallback
+##### log
 
-Type: `function`<br>
-Default: `() => throw new UnsupportedTerminal()`
+Type: `boolean`<br>
 
-Enables you to do something else when the terminal doesn't support images.
+Log image in terminal, `false` by default.
 
+#### return
+
+Type: `string`<br>
+The image string that can be displayed in terminal.
 
 ## Related
 
-- [term-img-cli](https://github.com/sindresorhus/term-img-cli) - CLI for this module
+- [imgcat](https://github.com/egoist/imgcat) - CLI for this module
 
 
 ## License
 
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+MIT © [EGOIST](https://github.com/egoist)
