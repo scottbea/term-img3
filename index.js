@@ -17,6 +17,7 @@ function unsupported() {
 
 module.exports = (img, opts) => {
 	opts = opts || {};
+        let imagePath = null;
 
 	const fallback = typeof opts.fallback === 'function' ? opts.fallback : unsupported;
 
@@ -35,10 +36,15 @@ module.exports = (img, opts) => {
 	}
 
 	if (typeof img === 'string') {
+                imagePath = img;
 		img = fs.readFileSync(img);
 	}
 
+        opts.preRender && opts.preRender({imagePath, img, opts, termVersion: version});
+
 	const ansi = ansiEscapes.image(img, opts);
+       
+        opts.postRender && opts.postRender({imagePath, img, opts, termVersion: version, output: ansi});
 
 	if (opts.log) {
 		console.log(ansi);
