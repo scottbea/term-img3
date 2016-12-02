@@ -24,7 +24,7 @@ var preRenderHandler = function(ctx, cb) {
 const opts = {
   height: 'auto',
   log: true,
-  scale: 0.25,
+  scale: 0.5,
   preRender: preRenderHandler
 }
 

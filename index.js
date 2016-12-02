@@ -15,8 +15,9 @@ function unsupported() {
 	throw new UnsupportedTerminal();
 }
 
-module.exports = (img, opts, callback) => {
-	opts = opts || {};
+module.exports = (img, options, callback) => {
+    let opts = Object.assign({}, options || {});
+
 	let imagePath = null;
 
 	const fallback = typeof opts.fallback === 'function' ? opts.fallback : unsupported;
@@ -39,7 +40,6 @@ module.exports = (img, opts, callback) => {
 		imagePath = img;
 		img = fs.readFileSync(img);
 	}
-
 
 	if (opts.preRender) {
 		opts.preRender({imagePath, img, opts, termVersion: version}, function(err, newImg, newOpts) {
