@@ -4,7 +4,7 @@ const iterm2Version = require('iterm2-version');
 const ansiEscapes = require('ansi-escapes');
 
 class UnsupportedTerminal extends Error {
-	constructor(message) {
+  constructor(message) {
 		super(message);
 		this.name = this.constructor.name;
 		this.message = 'iTerm >=2.9 required';
@@ -15,9 +15,9 @@ function unsupported() {
 	throw new UnsupportedTerminal();
 }
 
-module.exports = (img, opts) => {
+module.exports = (img, opts, callback) => {
 	opts = opts || {};
-        let imagePath = null;
+	let imagePath = null;
 
 	const fallback = typeof opts.fallback === 'function' ? opts.fallback : unsupported;
 
@@ -36,18 +36,31 @@ module.exports = (img, opts) => {
 	}
 
 	if (typeof img === 'string') {
-                imagePath = img;
+		imagePath = img;
 		img = fs.readFileSync(img);
 	}
 
-        opts.preRender && opts.preRender({imagePath, img, opts, termVersion: version});
 
-	const ansi = ansiEscapes.image(img, opts);
-       
-        opts.postRender && opts.postRender({imagePath, img, opts, termVersion: version, output: ansi});
-
-	if (opts.log) {
-		console.log(ansi);
+	if (opts.preRender) {
+		opts.preRender({imagePath, img, opts, termVersion: version}, function(err, newImg, newOpts) {
+			if (err) { 
+				if (content) { console.log(content) } 
+			}
+			else {
+				const ansi = ansiEscapes.image(newImg || img, newOpts || opts)
+				if ((newOpts || opts).log) {
+					console.log(ansi)
+				}
+				if (callback) { callback(ansi) }
+			}
+		})
 	}
-	return ansi;
-};
+	else {
+		const ansi = ansiEscapes.image(img, opts)
+		if (opts.log) {
+			console.log(ansi)
+		}
+		if (callback) { callback(ansi) }
+		return ansi
+	}
+}
